@@ -13,7 +13,7 @@ const app = express();
 const PORT = 8000;
 
 connectToMongoDB("mongodb://localhost:27017/short-url").then(() =>
-  console.log("Mongodb connected")
+  console.log("DB connected successfully..!")
 );
 
 app.set("view engine", "ejs");
@@ -26,6 +26,9 @@ app.use(cookieParser());
 app.use("/url", restrictToLoggedinUserOnly,urlRoute);
 app.use("/user", userRoute);
 app.use("/", checkAuth, staticRoute);
+app.get("/land",(req,res)=>{
+  res.render("landing.ejs");
+});
 
 app.get("/url/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
@@ -37,11 +40,25 @@ app.get("/url/:shortId", async (req, res) => {
       $push: {
         visitHistory: {
           timestamp: Date.now(),
-        },
+        }, 
       },
     }
   );
   res.redirect(entry.redirectURL);
+});
+
+app.get('/url/delete/:shortId', async (req, res) => {
+  const shortId = req.params.shortId;
+  const ShortedID1 = await URL.findOne({ shortId: shortId });
+
+  if (ShortedID1) {
+    await URL.deleteOne({ shortId: shortId });
+    //console.log(`Deleted:`, ShortedID1);
+  } else {
+    //console.log(`URL with shortId ${shortId} not found.`);
+  }
+  
+  res.redirect("/");
 });
 
 app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));

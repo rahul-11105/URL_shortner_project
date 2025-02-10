@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            color: #f8f8f8;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 40px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #f8f8f8;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            background-color: #d4af37;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f8f8f8;
+            color: #d4af37;
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: #2c2c2c;
+            flex-wrap: wrap;
+            margin-top: -30px;
+        }
+
+        .feature {
+            max-width: 300px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .feature p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #000;
+            color: #d4af37;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 16px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 18px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                max-width: 80%;
+                margin: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .feature h2 {
+                font-size: 20px;
+            }
+
+            .feature p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">URL Shortener</div>
+            <ul>
+                <li><a href="/login" class="nav-link">Login</a></li>
+                <li><a href="/signup" class="nav-link">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Shorten Your Links with Ease</h1>
+            <p>Transform your long URLs into short, shareable, and trackable links in an instant. Join the revolution in link management.</p>
+            <a href="/" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h2>Fast & Reliable</h2>
+            <p>Experience instant URL shortening and get access to reliable, fast redirection. Never worry about your links again!</p>
+        </div>
+        <div class="feature">
+            <h2>Track Clicks in Real-Time</h2>
+            <p>Gain insights into your audience’s behavior. Track the number of clicks on each shortened URL and analyze performance.</p>
+        </div>
+        <div class="feature">
+            <h2>Customizable Links</h2>
+            <p>Create branded links with your own custom aliases. Make your URLs more memorable and recognizable for your audience.</p>
+        </div>
+        <div class="feature">
+            <h2>Enhanced Security</h2>
+            <p>All your data is encrypted, and we maintain strict privacy standards. Feel confident knowing your information is protected.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 URL Shortener. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
