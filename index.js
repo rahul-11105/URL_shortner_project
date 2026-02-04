@@ -48,7 +48,7 @@ app.get("/url/:shortId", async (req, res) => {
 });
 
 app.get('/url/delete/:shortId', async (req, res) => {
-  const shortId = req.params.shortId;
+  const shortId = req.params.shortId; 
   const ShortedID1 = await URL.findOne({ shortId: shortId });
 
   if (ShortedID1) {
