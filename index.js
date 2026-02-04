@@ -12,7 +12,7 @@ const userRoute = require("./routes/user");
 const app = express();
 const PORT = 8000;
 
-connectToMongoDB("mongodb://localhost:27017/short-url").then(() =>
+connectToMongoDB("mongodb+srv://rahullokhande11105_db_user:rahul%4011105@cluster0.2lxkrfg.mongodb.net/?appName=Cluster0").then(() =>
   console.log("DB connected successfully..!")
 );
 
