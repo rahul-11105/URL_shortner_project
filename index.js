@@ -27,7 +27,7 @@ app.use("/url", restrictToLoggedinUserOnly,urlRoute);
 app.use("/user", userRoute);
 app.use("/", checkAuth, staticRoute);
 app.get("/land",(req,res)=>{
-  res.render("landing.ejs");
+  res.render("landing.ejs"); 
 });
 
 app.get("/url/:shortId", async (req, res) => {
