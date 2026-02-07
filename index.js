@@ -63,7 +63,7 @@ app.get('/url/delete/:shortId', async (req, res) => {
 });
 
 app.get('/forgot-password',(req,res)=>{
-      res.render("forgetPass.ejs");
+      res.render("forgotPass.ejs");
 });
 
 app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
