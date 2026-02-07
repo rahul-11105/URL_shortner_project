@@ -8,7 +8,12 @@ async function handleUserSignup(req, res) {
     name, 
     email,
     password,
-  });
+  }); 
+
+  const user = await User.findOne({ email, password });
+  const sessionId = uuidv4();
+  setUser(sessionId, user);
+  res.cookie("uid", sessionId);
   return res.redirect("/");
 }
 

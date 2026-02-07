@@ -9,6 +9,7 @@ const urlRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
 
+
 const app = express();
 const PORT = 8000;
 
@@ -30,7 +31,7 @@ app.get("/land",(req,res)=>{
   res.render("landing.ejs"); 
 });
 
-app.get("/url/:shortId", async (req, res) => {
+app.get("/url/:shortId", async (req, res) => { 
   const shortId = req.params.shortId;
   const entry = await URL.findOneAndUpdate(
     {
@@ -59,6 +60,10 @@ app.get('/url/delete/:shortId', async (req, res) => {
   }
   
   res.redirect("/");
+});
+
+app.get('/forgot-password',(req,res)=>{
+      res.render("forgetPass.ejs");
 });
 
 app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
