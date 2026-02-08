@@ -4,6 +4,8 @@ const cookieParser = require("cookie-parser");
 const { connectToMongoDB } = require("./connect");
 const { restrictToLoggedinUserOnly, checkAuth } = require("./middlewares/auth");
 const URL = require("./models/url");
+require("dotenv").config();
+
 
 const urlRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
@@ -13,7 +15,7 @@ const userRoute = require("./routes/user");
 const app = express();
 const PORT = 8000;
 
-connectToMongoDB("mongodb+srv://rahullokhande11105_db_user:rahul%4011105@cluster0.2lxkrfg.mongodb.net/?appName=Cluster0").then(() =>
+connectToMongoDB(process.env.MONGO_URI).then(() =>
   console.log("DB connected successfully..!")
 );
 
